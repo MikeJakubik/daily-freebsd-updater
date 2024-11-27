@@ -1,6 +1,6 @@
 # daily_updates bash script</h>
 
-A simple script to run common updates and maintanance tasks on FreeBSD stable/master for those who like to live on the bleeding edge. Great for workstations of lazy devs/users. Requires ports-mgmt/portmaster, devel/git, and root rights.
+A simple script to run common updates and maintanance tasks on FreeBSD stable or current, for those who like to live on the bleeding edge. Great for workstations of lazy devs/users/sysadmins. Requires ports-mgmt/portmaster, devel/git, and root rights.
 
 - Git pulls your configurted src and ports trees.
 - Updates FreeBSD binary pkg db.
