@@ -69,22 +69,18 @@ tput sgr0
 
 mark_safe_directory "/usr/ports"
 mark_safe_directory "/usr/src"
-# Add any additional directories you need to mark as safe:
-# mark_safe_directory "/path/to/other/repository"
 
-# Update /usr/ports git tree (split into cd and git pull for better error handling)
+# Update /usr/ports git tree
 tput bold
 echo "[ Updating /usr/ports git tree... ]"
 tput sgr0
-run_command "cd /usr/ports"
-run_command "git pull"
+run_command "cd /usr/ports && git pull"
 
-# Update /usr/src git tree (split into cd and git pull for better error handling)
+# Update /usr/src git tree
 tput bold
 echo "[ Updating /usr/src git tree... ]"
 tput sgr0
-run_command "cd /usr/src"
-run_command "git pull"
+run_command "cd /usr/src && git pull"
 
 # Update FreeBSD pkg repositories
 tput bold
