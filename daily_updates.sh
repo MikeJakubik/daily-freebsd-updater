@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-reset && clear
 
 # Function to display error messages with failure reason and not exit
 log_error() {
@@ -38,9 +37,9 @@ run_command() {
   local cmd="$1"
   echo "Running: $cmd"
   echo "$(date) - Running: $cmd" >> "$LOG_FILE"
-  
-  # Execute the command, capturing both stdout and stderr
-  output=$($cmd 2>&1)
+
+  # Execute the command using eval to handle complex commands
+  output=$(eval "$cmd" 2>&1)
   result=$?
 
   # Print output to terminal and log it
@@ -74,13 +73,13 @@ mark_safe_directory "/usr/src"
 tput bold
 echo "[ Updating /usr/ports git tree... ]"
 tput sgr0
-run_command "cd /usr/ports && git pull"
+run_command "(cd /usr/ports && git pull)"
 
 # Update /usr/src git tree
 tput bold
 echo "[ Updating /usr/src git tree... ]"
 tput sgr0
-run_command "cd /usr/src && git pull"
+run_command "(cd /usr/src && git pull)"
 
 # Update FreeBSD pkg repositories
 tput bold
